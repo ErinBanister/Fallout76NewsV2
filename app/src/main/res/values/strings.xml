@@ -5,4 +5,5 @@
     <string name="date">Date</string>
     <string name="section">Section</string>
     <string name="noNews">No Fallout 76 News Available.</string>
+    <string name="noInternet">No Internet Connection. Please Connect to update Fallout 76 News.</string>
 </resources>

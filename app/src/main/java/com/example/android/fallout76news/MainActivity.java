@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         if (!isConnected) {
             progress.setVisibility(View.GONE);
-            emptyState.setText(R.string.noNews);
+            emptyState.setText(R.string.noInternet);
         }
 
         LoaderManager lManager = getLoaderManager();
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         progress.setVisibility(View.GONE);
         if (mAdapter != null) {
             mAdapter.clear();
+            progress.setVisibility(View.GONE);
+            emptyState.setText(R.string.noNews);
         }
 
         if (data != null && !data.isEmpty()) {
