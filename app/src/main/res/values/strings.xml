@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fallout 76</string>
+    <string name="title">Title</string>
+    <string name="author">Author</string>
+    <string name="date">Date</string>
+    <string name="section">Section</string>
+    <string name="noNews">No Fallout 76 News Available.</string>
+</resources>

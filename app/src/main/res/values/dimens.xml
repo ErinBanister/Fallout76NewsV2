@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="listItemPadding">8dp</dimen>
+    <dimen name="listPaddingExternal">12dp</dimen>
+    <dimen name="listPaddingInternal">4dp</dimen>
+    <dimen name="titleFontSize">20sp</dimen>
+    <dimen name="detailFontSize">14sp</dimen>
+    <dimen name="emptyFontSize">26sp</dimen>
+</resources>

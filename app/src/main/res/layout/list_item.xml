@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_gravity="start"
+    android:background="@color/colorPrimaryDark"
+    android:padding="@dimen/listItemPadding">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/titleStyle"
+        app:layout_constraintBottom_toTopOf="@id/detailsBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/title" />
+
+    <LinearLayout
+        android:id="@+id/detailsBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <TextView
+            android:id="@+id/author"
+            style="@style/detailStyle"
+            android:layout_weight="1"
+            tools:text="@string/author" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/detailStyle"
+            android:layout_weight="1"
+            tools:text="@string/date" />
+
+        <TextView
+            android:id="@+id/section"
+            style="@style/detailStyle"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="@string/author"
+            tools:text="@string/section" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
