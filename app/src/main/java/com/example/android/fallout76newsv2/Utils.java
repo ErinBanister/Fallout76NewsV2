@@ -1,4 +1,4 @@
-package com.example.android.fallout76news;
+package com.example.android.fallout76newsv2;
 
 import android.text.TextUtils;
 import android.util.Log;

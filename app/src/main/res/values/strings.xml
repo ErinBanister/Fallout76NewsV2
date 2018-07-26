@@ -6,4 +6,54 @@
     <string name="section">Section</string>
     <string name="noNews">No Fallout 76 News Available.</string>
     <string name="noInternet">No Internet Connection. Please Connect to update Fallout 76 News.</string>
+
+    <!-- Strings related to Settings -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_title">Fallout News Settings</string>
+    <string name="settings_order_label">Order by</string>
+    <string name="settings_section_label" translatable="false">Section</string>
+
+    <!-- Strings For Order-By Preferences -->
+    <string name="settings_order_by_label">@string/settings_order_label</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_value</string>
+
+    <!-- Label for order-by newest option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_newest_label">Newest</string>
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+
+    <!-- Label for order-by oldest option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_oldest_label">Oldest</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+
+    <!-- Label for order-by relevance option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_relevance_label">Relevance</string>
+    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
+
+    <!-- Strings For Section Preference [CHAR LIMIT=30] -->
+    <string name="settings_section_key" translatable="false">games</string>
+    <string name="settings_section_default" translatable="false">@string/settings_section_games_value</string>
+
+    <!-- Label for Sections [CHAR LIMIT=20] -->
+    <string name="settings_section_games_label">Games</string>
+    <string name="settings_section_games_value" translatable="false">games</string>
+
+    <!-- Label for News [CHAR LIMIT=20] -->
+    <string name="settings_section_news_label">News</string>
+    <string name="settings_section_news_value" translatable="false">news</string>
+
+    <!-- values for URL Builder -->
+    <string name="gamesDefault">games</string>
+    <string name="orderDefault">newest</string>
+    <string name="query">q</string>
+    <string name="search_q">fallout AND 76</string>
+    <string name="apiValue">aed1eafc-57ec-4c3e-be76-75a969408ea1</string>
+    <string name="apiKey">api-key</string>
+    <string name="sectionSearch">section</string>
+    <string name="orderBySearch">order-by</string>
+    <string name="showTagsSearch">show-tags</string>
+    <string name="tagNames">contributor</string>
+
+
 </resources>

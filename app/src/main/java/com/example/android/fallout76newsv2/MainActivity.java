@@ -1,14 +1,18 @@
-package com.example.android.fallout76news;
+package com.example.android.fallout76newsv2;
 
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
     private static final int LOADER_ID = 1;
-    private static final String GUARDIAN_URL = "https://content.guardianapis.com/search?order-by=newest&show-tags=contributor&q=fallout%20AND%2076&api-key=aed1eafc-57ec-4c3e-be76-75a969408ea1";
+    private static final String GUARDIAN_URL = "https://content.guardianapis.com/search";
     private NewsAdapter mAdapter;
     private TextView emptyState;
     private View progress;
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             emptyState.setText(R.string.noInternet);
         }
 
-        LoaderManager lManager = getLoaderManager();
+        LoaderManager lManager = null;
+        lManager = getLoaderManager();
         lManager.initLoader(LOADER_ID, null, this);
         progress.setVisibility(View.GONE);
         mAdapter = new NewsAdapter(this, new ArrayList<News>());
@@ -70,8 +75,41 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        return new NewsLoader(this, GUARDIAN_URL);
+    // This method initialize the contents of the Activity's options main.
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the Options Menu we specified in XML
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.settingsbutton) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String orderBy = sharedPrefs.getString(getString(R.string.settings_order_by_key), getString(R.string.orderDefault));
+        String section = sharedPrefs.getString(getString(R.string.settings_section_key), getString(R.string.gamesDefault));
+
+
+        Uri baseUri = null;
+        baseUri = Uri.parse(GUARDIAN_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+        uriBuilder.appendQueryParameter(getString(R.string.sectionSearch), section);
+        uriBuilder.appendQueryParameter(getString(R.string.orderBySearch), orderBy);
+        uriBuilder.appendQueryParameter(getString(R.string.showTagsSearch), getString(R.string.tagNames));
+        uriBuilder.appendQueryParameter(getString(R.string.query), getString(R.string.search_q));
+        uriBuilder.appendQueryParameter(getString(R.string.apiKey), getString(R.string.apiValue));
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     @Override
@@ -92,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
+
 
     }
 

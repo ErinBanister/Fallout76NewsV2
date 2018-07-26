@@ -1,4 +1,4 @@
-package com.example.android.fallout76news;
+package com.example.android.fallout76newsv2;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class NewsAdapter extends ArrayAdapter {
     private Context mContext;
@@ -56,19 +52,10 @@ public class NewsAdapter extends ArrayAdapter {
         //set section
         section.setText(currentNews.getSection());
 
-        //set date, parse for readability
-        try {
-            DateFormat dateformat = new SimpleDateFormat("YYYY-MM-DD");
-            String shortDate = currentNews.getDate().substring(0, 10);
-            Date parseDate = dateformat.parse(shortDate);
-            DateFormat formatter = new SimpleDateFormat("MMM dd yyyy");
-            String dateStr = formatter.format(parseDate);
-            date.setText(dateStr);
+        //set date
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-            date.setText("");
-        }
+        String shortDate = currentNews.getDate().substring(0, 10);
+        date.setText(shortDate);
 
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override
